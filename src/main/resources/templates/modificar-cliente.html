@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar un Cliente</title>
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css}" />
+    <link th:href="@{../css/styles.css}" th:rel=" stylesheet " type="text/css" href="../static/css/styles.css">
+</head>
+
+<body class="fondo-registro d-flex flex-column align-items-center justify-content-center">
+    <h1>Modificar Cliente</h1>
+    <div class="col-lg-4 col-md-8 col-sm-12">
+        <form class="contenedor-registro col-12 d-flex flex-column p-2" id="formRegistro" th:object="${unCliente}" th:action="@{/cliente/modificar}" method="post">
+            <div class="col-12">
+                <div class="form-group d-flex flex-column">
+                    <label for="tipodoc" class="form-label">Tipo de Documento</label>
+                    <input class="form-control" type="text" id="tipodoc" th:field="*{tipoDocumento}" readonly>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group d-flex flex-column">
+                    <label for="numdoc" class="form-label">Documento</label>
+                    <input class="form-control" type="number" id="numdoc" th:field="*{nroDocumento}" readonly>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group d-flex flex-column">
+                    <label for="nombreapellido" class="form-label">Nombre y Apellido</label>
+                    <input class="form-control" type="text" id="nombreapellido" th:field="*{nombreApellido}" required>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group d-flex flex-column">
+                    <label for="email" class="form-label">Email</label>
+                    <input class="form-control" type="email" id="email" th:field="*{email}" placeholder="example@email.com" required>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group d-flex flex-column">
+                    <label for="email" class="form-label">Constraseña</label>
+                    <input class="form-control" type="password" id="password" th:field="*{password}" required>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group d-flex flex-column">
+                    <label for="fechanac" class="form-label">Nacimiento</label>
+                    <input class="form-control" type="date" id="fechanac" th:field="*{fechaNac}" required>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group d-flex flex-column">
+                    <label for="fucompra" class="form-label">Fecha ultima compra</label>
+                    <input class="form-control" type="date" id="fucompra" th:field="*{fechaUltimaCompra}" required>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="form-group d-flex flex-column m-auto">
+                    <label for="codigo" class="form-label">Cod Area</label>
+                    <input class="form-control" type="number" id="codigo" th:field="*{codAreaTelefono}" required>
+                </div>
+                <div class="form-group d-flex flex-column m-auto">
+                    <label for="numtel" class="form-label">Telefono</label>
+                    <input class="form-control" type="number" id="numtel" th:field="*{nroTelefono}" required>
+                </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-center m-5">
+                <button class="btn btn-primary mr-5" type="submit" value="Modificar">Modificar</button>
+                <a href="/cliente/mostrar"><button class="btn btn-danger">Cancelar</button></a>
+            </div>
+        </form>
+    </div>
+    <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}" type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
+    <script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}" type="text/javascript" src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

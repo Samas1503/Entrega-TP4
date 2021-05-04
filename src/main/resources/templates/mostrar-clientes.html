@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de clientes</title>
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css}" />
+</head>
+
+<body>
+    <div class="mb-4">
+        <div th:insert="layout/header :: header"></div>
+    </div>
+    <div class="container">
+        <h3>Lista de Clientes</h3><br>
+        <div class="table-responsive d-flex justify-content-center text-dark text-center">
+            <table class="table-dark table-bordered">
+                <tr>
+                    <th class="p-2">Tipo</th>
+                    <th class="p-2">Num Doc</th>
+                    <th class="p-2">Nombre y Apellido</th>
+                    <th class="p-2">Fecha de Nacimiento</th>
+                    <th class="p-2">Fecha de Ultima Compra</th>
+                    <th class="p-2">Cod - Telefono</th>
+                    <th class="p-2">Email</th>
+                    <th class="p-2">Edad</th>
+                    <th class="p-2">Datos adicionales</th>
+                    <th class="p-2">Editar</th>
+                    <th class="p-2">Eliminar</th>
+                </tr>
+                <tr th:if="${clientes.empty}">
+                    <td colspan="11">No hay clientes cargados</td>
+                </tr>
+                <tr th:each="cl : ${clientes}">
+                    <td class="p-2" th:text="${cl.tipoDoc}"></td>
+                    <td class="p-2" th:text="${cl.nroDocumento}"></td>
+                    <td class="p-2" th:text="${cl.nombreApellido.toUpperCase()}"></td>
+                    <td class="p-2" th:text="${#temporals.format(cl.fechaNac,'dd/MM/yyyy')}"></td>
+                    <td class="p-2" th:text="${#temporals.format(cl.fechaUltimaCompra,'dd/MM/yyyy')}"></td>
+                    <td class="p-2" th:text="|${cl.codAreaTelefono} - ${cl.nroTelefono}|"></td>
+                    <td class="p-2" th:text="${cl.email}"></td>
+                    <td class="p-2" th:text="${cl.getEdad()}"></td>
+                    <td class="p-2" th:text="${cl.getDatos()}"></td>
+                    <td class="p-2"><a th:href="@{'/cliente/editar/'+${cl.nroDocumento}}"><i class="fas fa-edit"></i></a></td>
+                    <td class="p-2"><a th:href="@{'/cliente/eliminar/'+${cl.nroDocumento}}"><i class="fas fa-user-minus"></i></a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="container-fluid mt-4">
+        <div th:insert="layout/footer :: footer"></div>
+    </div>
+    <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}" type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
+    <script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}" type="text/javascript" src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

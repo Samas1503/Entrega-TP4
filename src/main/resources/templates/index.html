@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css}" />
+    <link th:href="@{../css/styles.css}" th:rel=" stylesheet " type="text/css" href="../static/css/styles.css">
+</head>
+
+<body class="index">
+    <div class="mb-4">
+        <div th:insert="layout/header :: header"></div>
+    </div>
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+            <form id="formIngreso" th:object="${ingresante}" th:action="@{/ingresarUsuario}" method="POST">
+                <div class="form-group">
+                    <select class="col-form-label form-control" name="tipoIngresante" id="tipoIngresante" th:field="*{tipoDoc}" required>
+                        <option value="Tipo" selected>Seleccione su tipo de documento...</option>
+                        <option value="Pasaporte" class="form-select">Pasaporte</option>
+                        <option value="DNI" class="form-select">DNI</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input class="col-form-label form-control" type="text" id="Ingresante" placeholder="Documento" th:field="*{nroDocumento}" required>
+                </div>
+                <div class="form-group">
+                    <input class="col-form-label form-control" type="password" id="PasswordIngresante" placeholder="Password" th:field="*{password}" required>
+                </div>
+                <div class="mr-5 ml-5 mt-3">
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                        <button class="btn btn-success"><a class="text-white" href="/registrarse">Registrarse</a></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <div th:insert="layout/footer :: footer"></div>
+    </div>
+    <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}" type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
+    <script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}" type="text/javascript" src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
