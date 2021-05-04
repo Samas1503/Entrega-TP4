@@ -3,37 +3,48 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Productos</title>
+    <title>Lista de Productos</title>
     <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
     <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css}" />
     <link th:href="@{../css/styles.css}" th:rel=" stylesheet " type="text/css" href="../static/css/styles.css">
 </head>
 
-<body>
-    <div class="container-fluid">
+<body class="fondo-mostrar-p">
+    <div class="mb-4">
         <div th:insert="layout/header :: header"></div>
     </div>
-
-    <h3>Lista de Productos</h3><br>
-    <div>
-        <table class="table-responsive">
-            <tr>
-                <th>Cod Producto</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Marca</th>
-                <th>Stock</th>
-            </tr>
-            <tr th:each="producto : ${productos}">
-                <td th:text="${producto.codProducto}"></td>
-                <td th:text="${producto.nombre}"></td>
-                <td th:text="${producto.precio}"></td>
-                <td th:text="${producto.marca}"></td>
-                <td th:text="${producto.stock}"></td>
-            </tr>
-        </table>
+    <div class="container-fluid d-flex flex-column">
+        <h3 class="m-auto">Lista de Productos</h3>
+        <div class="table-responsive d-flex justify-content-center text-dark text-center mt-4">
+            <table class="table-dark table-bordered">
+                <tr>
+                    <th class="p-2" colspan="11">Agregar Productos <a class="icono" th:href="@{/producto/registrar}"><i class="fas fa-plus"></i></a></th>
+                </tr>
+                <tr>
+                    <th class="p-2">Cod Producto</th>
+                    <th class="p-2">Nombre</th>
+                    <th class="p-2">Precio</th>
+                    <th class="p-2">Marca</th>
+                    <th class="p-2">Stock</th>
+                    <th class="p-2">Editar</th>
+                    <th class="p-2">Eliminar</th>
+                </tr>
+                <tr th:if="${productos.empty}">
+                    <td colspan="7">No hay clientes cargados</td>
+                </tr>
+                <tr th:each="producto : ${productos}">
+                    <td class="p-2" th:text="${producto.codProducto}"></td>
+                    <td class="p-2" th:text="${producto.nombre}"></td>
+                    <td class="p-2" th:text="${producto.precio}"></td>
+                    <td class="p-2" th:text="${producto.marca}"></td>
+                    <td class="p-2" th:text="${producto.stock}"></td>
+                    <td class="p-2"><a class="icono" th:href="@{'/producto/editar/'+${producto.codProducto}}"><i class="fas fa-edit"></i></a></td>
+                    <td class="p-2"><a class="icono" th:href="@{'/producto/eliminar/'+${producto.codProducto}}"><i class="fas fa-times"></i></a></td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <div class="container-fluid mt-4">
+    <div class="mt-4">
         <div th:insert="layout/footer :: footer"></div>
     </div>
     <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>

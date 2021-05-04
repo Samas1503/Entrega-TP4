@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
-    <title>Agregar Productos</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar un Cliente</title>
     <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
     <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css}" />
     <link th:href="@{../css/styles.css}" th:rel=" stylesheet " type="text/css" href="../static/css/styles.css">
 </head>
 
-<body class="fondo-registro-p">
+<body class="fondo-modificar-p">
     <div>
         <div th:insert="layout/header :: header"></div>
     </div>
-
     <div class="d-flex flex-column align-items-center justify-content-center">
-        <h1>Formulario de Carga de Producto</h1>
+        <h1 class="py-5">Formulario de Carga de Producto</h1>
         <div class="col-lg-4 col-md-8 col-sm-12">
-            <form class="contenedor-registro p-4 col-12 d-flex flex-column p-2" id="formProducto" th:object="${unProducto}" th:action="@{/producto/guardar}" method="POST">
+            <form class="contenedor-registro col-12 d-flex flex-column p-2" id="formProducto" th:object="${unProducto}" th:action="@{/producto/modificar}" method="POST">
                 <div class="col-12">
                     <div class="form-group d-flex flex-column">
                         <label class="form-label" for="codigo">Codigo</label>
-                        <input class="form-control" type="text" id="codigo" th:field="*{codProducto}">
+                        <input class="form-control" type="text" id="codigo" th:field="*{codProducto}" readonly>
                     </div>
                 </div>
                 <div class="col-12">
@@ -49,15 +49,14 @@
                         <input class="form-control" type="number" id="stock" th:field="*{stock}">
                     </div>
                 </div>
-
-                <div class="d-flex align-items-center justify-content-center my-4">
-                    <button class="btn btn-primary mr-5" type="submit" value="Agregar">Agregar</button>
+                <div class="d-flex align-items-center justify-content-center m-5">
+                    <button type="submit" value="Agregar" class="btn btn-success mr-5">Modificar</button>
+                    <a th:href="@{/producto/mostrar}"><button class="btn btn-danger">Cancelar</button></a>
                 </div>
 
             </form>
         </div>
     </div>
-
     <div class="mt-4">
         <div th:insert="layout/footer :: footer"></div>
     </div>

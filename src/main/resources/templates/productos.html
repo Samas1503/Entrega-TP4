@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>Productos</title>
     <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
     <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css}" />
     <link th:href="@{../css/styles.css}" th:rel=" stylesheet " type="text/css" href="../static/css/styles.css">
@@ -13,35 +13,8 @@
     <div>
         <div th:insert="layout/header :: header"></div>
     </div>
-    <h1>Menú</h1>
-    <ul>
-        <li><a href="/ultimo">Mostrar Último</a></li>
-        <li>Mostrar Todos</li>
-        <li>Buscar Producto por Nombre</li>
-        <li>Buscar Producto por Código</li>
-        <li><a href="/volver">Volver</a></li>
-    </ul>
 
-    <h3>Lista de Productos</h3><br>
-    <div>
-        <table class="table-responsive">
-            <tr>
-                <th>Cod Producto</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Marca</th>
-                <th>Stock</th>
-            </tr>
-            <tr th:each="producto : ${productos}">
-                <td th:text="${producto.codProducto}"></td>
-                <td th:text="${producto.nombre}"></td>
-                <td th:text="${producto.precio}"></td>
-                <td th:text="${producto.marca}"></td>
-                <td th:text="${producto.stock}"></td>
-            </tr>
-        </table>
-    </div>
-    <div class="container-fluid mt-4">
+    <div class="mt-4">
         <div th:insert="layout/footer :: footer"></div>
     </div>
     <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>

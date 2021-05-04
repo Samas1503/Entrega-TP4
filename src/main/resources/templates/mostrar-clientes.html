@@ -3,19 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Lista de clientes</title>
+    <title>Lista de Clientes</title>
     <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
     <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css}" />
+    <link th:href="@{../css/styles.css}" th:rel=" stylesheet " type="text/css" href="../static/css/styles.css">
 </head>
 
-<body>
+<body class="fondo-mostrar">
     <div class="mb-4">
         <div th:insert="layout/header :: header"></div>
     </div>
-    <div class="container">
-        <h3>Lista de Clientes</h3><br>
-        <div class="table-responsive d-flex justify-content-center text-dark text-center">
+    <div class="container-fluid d-flex flex-column">
+        <h3 class="m-auto">Lista de Clientes</h3>
+        <div class="table-responsive d-flex justify-content-center text-dark text-center mt-5">
             <table class="table-dark table-bordered">
+                <tr>
+                    <th class="p-2" colspan="11">Agregar Clientes <a class="icono" th:href="@{/cliente/registrar}"><i class="fas fa-plus"></i></a></th>
+                </tr>
                 <tr>
                     <th class="p-2">Tipo</th>
                     <th class="p-2">Num Doc</th>
@@ -42,8 +46,8 @@
                     <td class="p-2" th:text="${cl.email}"></td>
                     <td class="p-2" th:text="${cl.getEdad()}"></td>
                     <td class="p-2" th:text="${cl.getDatos()}"></td>
-                    <td class="p-2"><a th:href="@{'/cliente/editar/'+${cl.nroDocumento}}"><i class="fas fa-edit"></i></a></td>
-                    <td class="p-2"><a th:href="@{'/cliente/eliminar/'+${cl.nroDocumento}}"><i class="fas fa-user-minus"></i></a></td>
+                    <td class="p-2"><a class="icono" th:href="@{'/cliente/editar/'+${cl.nroDocumento}}"><i class="fas fa-edit"></i></a></td>
+                    <td class="p-2"><a class="icono" th:href="@{'/cliente/eliminar/'+${cl.nroDocumento}}"><i class="fas fa-user-slash"></i></a></td>
                 </tr>
             </table>
         </div>

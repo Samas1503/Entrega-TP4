@@ -11,6 +11,7 @@ import ar.edu.unju.edm.tp4.model.Clientes;
 public interface IClienteService {
 //import org.springframework.stereotype.Service;
 	public void guardarCliente(Clientes unCliente);
+	public void adiconalesCliente(Clientes unCliente);
 	public Clientes crearCliente();
 	public List<Clientes> obtenerTodosClientes();
 	public boolean verificarCliente(String tipo,int numDoc,String password);

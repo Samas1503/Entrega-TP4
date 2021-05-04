@@ -18,7 +18,7 @@
             <form id="formIngreso" th:object="${ingresante}" th:action="@{/ingresarUsuario}" method="POST">
                 <div class="form-group">
                     <select class="col-form-label form-control" name="tipoIngresante" id="tipoIngresante" th:field="*{tipoDoc}" required>
-                        <option value="Tipo" selected>Seleccione su tipo de documento...</option>
+                        <option value="Tipo" selected readonly>Seleccione su tipo de documento...</option>
                         <option value="Pasaporte" class="form-select">Pasaporte</option>
                         <option value="DNI" class="form-select">DNI</option>
                     </select>

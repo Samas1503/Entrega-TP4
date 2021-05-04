@@ -20,6 +20,34 @@ nav .navbar-nav a {
     background-repeat: no-repeat;
 }
 
+.fondo-registro-p {
+    background-image: url(../img/fondo-registro-p.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.fondo-mostrar {
+    background-image: url(../img/fondo-mostrar.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.fondo-mostrar-p {
+    background-image: url(../img/fondo-mostrar-p.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.fondo-modificar {
+    background-image: url(../img/fondo-modificar.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
 .contenedor-registro {
     background-color: rgba(0, 0, 0, .5);
     border-radius: 15px;
@@ -106,5 +134,9 @@ nav .navbar-nav a {
 }
 
 .index button a {
+    text-decoration: none;
+}
+
+.icono {
     text-decoration: none;
 }

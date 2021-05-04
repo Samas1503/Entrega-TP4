@@ -22,6 +22,11 @@ public class ClienteServiceImp implements IClienteService{
 	Clientes unCliente;
 
 	public void guardarCliente(Clientes unCliente) {
+		listadoClientes.add(unCliente);
+	}
+
+	public void adiconalesCliente(Clientes unCliente){
+		
 		LocalDate fechaN = unCliente.getFechaNac();
 		LocalDate fechaA = LocalDate.now();
 		LocalTime horaA = LocalTime.now();
@@ -64,11 +69,9 @@ public class ClienteServiceImp implements IClienteService{
 			horaM = horaM.minusSeconds(horaA.getSecond());
 			datos += periodo.getYears() + " año(s) " + periodo.getMonths() + " mes(es) " + periodo.getDays() + " dia(s) " + horaM.getHour() + ":" + horaM.getMinute() + ":" + horaM.getSecond();
 		} else{
-			System.out.println(datos);
 			datos += " Feliz Cumpleaños";
 		}
-			unCliente.setDatos(datos);
-		listadoClientes.add(unCliente);
+		unCliente.setDatos(datos);
 	}
 
 	public Clientes crearCliente() {

@@ -19,7 +19,8 @@ public class ClienteController {
     @Qualifier("clienteImp")
     IClienteService clienteService;
 
-    
+    //GET
+
     @GetMapping(value="/")
     public String principal(Model modelo){
         return "inicio";
@@ -31,20 +32,34 @@ public class ClienteController {
         return "index";
     }
 
-    @GetMapping(value="/registrarse")
-    public String registrarCliente(Model model){
-        model.addAttribute("unCliente", clienteService.crearCliente());
-        return "registro";
+    //POST
+
+    @PostMapping(value="/ingresarUsuario")
+    public String ingresarUsuario(@ModelAttribute("ingresante") Clientes ing){
+        if(clienteService.verificarCliente(ing.getTipoDoc(), ing.getNroDocumento(), ing.getPassword())){
+            return "inicio";
+        }
+        else{
+            return "index";
+        }
     }
 
+    //GET
+
+    @GetMapping(value="/cliente")
+    public String clienteOpciones(Model modelo){
+        return "cliente";
+    }
+    
     @GetMapping(value="/registrado")
     public String registradoCliente(){
         return "registrado";
     }
 
-    @GetMapping(value="/cliente")
-    public String clienteOpciones(Model modelo){
-        return "cliente";
+    @GetMapping(value="/cliente/registrar")
+    public String registrarCliente(Model model){
+        model.addAttribute("unCliente", clienteService.crearCliente());
+        return "registro";
     }
     
     @GetMapping(value="/cliente/mostrar")
@@ -57,12 +72,11 @@ public class ClienteController {
     public ModelAndView editandoCliente(@PathVariable(name = "nroDocumento") int dni){
         ModelAndView model = new ModelAndView("modificar-cliente");
         Clientes encontrado = clienteService.buscarCliente(dni);
-        System.out.println(encontrado);
         model.addObject("unCliente", encontrado);
         return model;
     }
 
-	@GetMapping("/cliente/eliminar/{nroDocumento}")
+	@GetMapping(value="/cliente/eliminar/{nroDocumento}")
 	public String eliminarCliente(@PathVariable(name = "nroDocumento")int dni,Model model) throws Exception{
 		try {
 			clienteService.eliminarCliente(dni);
@@ -74,25 +88,17 @@ public class ClienteController {
 
     //POST
 
-    @PostMapping(value="/ingresarUsuario")
-    public String ingresarUsuario(@ModelAttribute("ingresante") Clientes ing){
-        if(clienteService.verificarCliente(ing.getTipoDoc(), ing.getNroDocumento(), ing.getPassword())){
-            return "/inicio";
-        }
-        else{
-            return "index";
-        }
-    }
-
-    @PostMapping(value="/cliente/guardar")
+   @PostMapping(value="/cliente/guardar")
     public String guardarCliente(@ModelAttribute("unCliente") Clientes nuevoCliente){
         clienteService.guardarCliente(nuevoCliente);
+        clienteService.adiconalesCliente(nuevoCliente);
         return "redirect:/registrado";
     }
     
-	@PostMapping("/cliente/modificar")
+	@PostMapping(value="/cliente/modificar")
 	public String modificarCliente(@ModelAttribute("unCliente") Clientes clienteModificado){
 		clienteService.modificarCliente(clienteModificado);
+        clienteService.adiconalesCliente(clienteModificado);
 		return "redirect:/cliente/mostrar";
 	}
     

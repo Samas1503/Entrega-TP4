@@ -1,6 +1,6 @@
 package ar.edu.unju.edm.tp4.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -10,9 +10,9 @@ import ar.edu.unju.edm.tp4.model.Producto;
 public interface ProductoService{
     public void guardarProducto(Producto unProducto);
 	public void modificarProducto(Producto productoAModificar);
-	public void eliminarProducto(Producto productoAEliminar);
+	public void eliminarProducto(int cod);
 	public Producto obtenerUnProducto(int cod);
-	public ArrayList<Producto> obtenerTodosProductos();
+	public List<Producto> obtenerTodosProductos();
 	public Producto obtenerProductoNuevo();
 	public Object obtenerUltimoProducto();
 }

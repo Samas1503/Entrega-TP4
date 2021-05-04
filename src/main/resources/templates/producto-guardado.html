@@ -10,8 +10,8 @@
     <link th:href="@{../css/styles.css}" th:rel=" stylesheet " type="text/css" href="../static/css/styles.css">
 </head>
 
-<body>
-    <div class="container-fluid">
+<body class="fondo-registro-p">
+    <div>
         <div th:insert="layout/header :: header"></div>
     </div>
 
@@ -21,12 +21,12 @@
             <span><i class="fas fa-thumbs-up"></i></span>
             <div class="d-flex">
                 <a th:href="@{/producto}"><button type="submit" value="volver" class="btn btn-primary mt-5">Volver a Menú</button></a>
-                <a th:href="@{/producto/guardar}"><button type="submit" value="volver" class="btn btn-primary mt-5">Cargar otro producto</button></a>
+                <a th:href="@{/producto/registrar}"><button type="submit" value="volver" class="btn btn-primary mt-5">Cargar otro producto</button></a>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid mt-4">
+    <div class="mt-4">
         <div th:insert="layout/footer :: footer"></div>
     </div>
     <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
