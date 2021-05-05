@@ -24,24 +24,26 @@ public class ProductoController {
 	
 	@GetMapping(value="/producto")
 	public String inicioProducto(){
-		return "productos";
-	}
-	
-	@GetMapping(value="/producto/registrar")
-	public String cargarProducto(Model model) {
-		model.addAttribute("unProducto", iProductoService.obtenerProductoNuevo());
-		return("cargar-producto");
+		return "producto";
 	}
 	
 	@GetMapping(value="/producto/mostrar")
 	public String mostrarProductos(Model model){
 		model.addAttribute("productos", iProductoService.obtenerTodosProductos());
+		model.addAttribute("regreso", true);
 		return "mostrar-productos";
 	}
+	
+	@GetMapping(value="/producto/registrar")
+	public String cargarProducto(Model model) {
+		model.addAttribute("unProducto", iProductoService.obtenerProductoNuevo());
+		return("registrar-producto");
+	}
 
-	@GetMapping(value = "/producto/guardado")
-	public String productoGuardado(){
-		return "producto-guardado";
+	@GetMapping(value = "/producto/registrado")
+	public String productoGuardado(Model model){
+		model.addAttribute("regreso", true);
+		return "registrado";
 	}
 	
 	@GetMapping(value="/producto/editar/{codProducto}")
@@ -67,7 +69,7 @@ public class ProductoController {
 	@PostMapping(value = "/producto/guardar")
 	public String guardarProducto(@ModelAttribute("unProducto") Producto nuevoProducto) {
 		iProductoService.guardarProducto(nuevoProducto);
-		return("redirect:/producto/guardado");
+		return("redirect:/producto/registrado");
 	}
 	@PostMapping(value="/producto/modificar")
 	public String modificarCliente(@ModelAttribute("unCliente") Producto clienteModificado){

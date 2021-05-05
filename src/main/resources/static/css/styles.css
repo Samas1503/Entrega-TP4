@@ -1,3 +1,10 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 #formIngreso {
     background-color: rgba(0, 0, 0, .5);
     border-radius: 5px;
@@ -143,4 +150,58 @@ nav .navbar-nav a {
 
 .icono {
     text-decoration: none;
+}
+
+.header,
+.footer {
+    height: 10%;
+}
+
+.contenedor {
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.eleccion {
+    min-height: 80%;
+    min-width: 50%;
+    margin: 0;
+    padding: 0;
+}
+
+.eleccion a,
+.eleccion button,
+.eleccion div {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 50px;
+}
+
+.titulo {
+    font-size: 60px;
+    text-transform: uppercase;
+}
+
+.btn-cliente {
+    background-image: url(../img/cliente.jfif);
+}
+
+.btn-inicio-cliente {
+    background-image: url(../img/inicio-cliente.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.btn-producto {
+    background-image: url(../img/producto.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.btn-inicio-producto {
+    background-image: url(../img/inicio-producto.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }

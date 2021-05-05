@@ -12,11 +12,28 @@
 </head>
 
 <body>
-    <div class="mb-4">
+    <div>
         <div th:insert="layout/header :: header"></div>
     </div>
-
-    <div class="mt-4">
+    <div class="d-flex contenedor">
+        <div class="eleccion d-flex flex-column">
+            <a th:href="@{/cliente}">
+                <button class="btn btn-primary">Clientes</button>
+            </a>
+        </div>
+        <div class="eleccion d-flex flex-column">
+            <div class="btn-cliente"></div>
+        </div>
+    </div>
+    <div class="d-flex contenedor">
+        <div class="eleccion d-flex flex-column">
+            <div class="btn-producto"></div>
+        </div>
+        <div class="eleccion d-flex flex-column">
+            <a th:href="@{/producto}"><button class="btn btn-primary">Productos</button></a>
+        </div>
+    </div>
+    <div>
         <div th:insert="layout/footer :: footer"></div>
     </div>
     <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>

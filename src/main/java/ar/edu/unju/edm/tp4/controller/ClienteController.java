@@ -50,16 +50,18 @@ public class ClienteController {
     public String clienteOpciones(Model modelo){
         return "cliente";
     }
-    
-    @GetMapping(value="/registrado")
-    public String registradoCliente(){
-        return "registrado";
-    }
 
     @GetMapping(value="/cliente/registrar")
     public String registrarCliente(Model model){
         model.addAttribute("unCliente", clienteService.crearCliente());
-        return "registro";
+        model.addAttribute("regreso", false);
+        return "registrar-cliente";
+    }
+    
+    @GetMapping(value="/cliente/registrado")
+    public String registradoCliente(Model model){
+        model.addAttribute("regreso", false);
+        return "registrado";
     }
     
     @GetMapping(value="/cliente/mostrar")
@@ -92,7 +94,7 @@ public class ClienteController {
     public String guardarCliente(@ModelAttribute("unCliente") Clientes nuevoCliente){
         clienteService.guardarCliente(nuevoCliente);
         clienteService.adiconalesCliente(nuevoCliente);
-        return "redirect:/registrado";
+        return "redirect:/cliente/registrado";
     }
     
 	@PostMapping(value="/cliente/modificar")
