@@ -15,20 +15,21 @@
     <div>
         <div th:insert="layout/header :: header"></div>
     </div>
-    <div class="d-flex flex-column m-auto registrado">
-        <div class="p-5">
-            <h1>Datos Registrados Exitosamente!</h1>
-            <span><i class="fas fa-thumbs-up"></i></span>
+    <div class="contenedor">
+        <div class="d-flex flex-column m-auto registrado">
+            <div class="p-5">
+                <h1>Datos Registrados Exitosamente!</h1>
+                <span><i class="fas fa-thumbs-up"></i></span>
+            </div>
+            <div th:if="not ${regreso}">
+                <a th:href="@{/cliente/mostrar}"><button type="submit" value="volver" class="btn btn-primary mt-5">Volver a Inicio </button></a>
+            </div>
+            <div th:if="${regreso}">
+                <a th:href="@{/producto/mostrar}"><button type="submit" value="volver" class="btn btn-primary mt-5">Volver a Inicio </button></a>
+            </div>
         </div>
-        <div th:if="not ${regreso}">
-            <a th:href="@{/cliente/mostrar}"><button type="submit" value="volver" class="btn btn-primary mt-5">Volver a Inicio </button></a>
-        </div>
-        <div th:if="${regreso}">
-            <a th:href="@{/producto/mostrar}"><button type="submit" value="volver" class="btn btn-primary mt-5">Volver a Inicio </button></a>
-        </div>
-
     </div>
-    <div class="mt-4">
+    <div>
         <div th:insert="layout/footer :: footer"></div>
     </div>
     <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>

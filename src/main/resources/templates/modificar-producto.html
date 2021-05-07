@@ -18,7 +18,7 @@
     <div class="d-flex flex-column align-items-center justify-content-center">
         <h1 class="py-5">Formulario de Carga de Producto</h1>
         <div class="col-lg-4 col-md-8 col-sm-12">
-            <form class="contenedor-registro col-12 d-flex flex-column p-2" id="formProducto" th:object="${unProducto}" th:action="@{/producto/modificar}" method="POST">
+            <form class="contenedor-registro text-white p-4 col-12 d-flex flex-column p-2" id="formProducto" th:object="${unProducto}" th:action="@{/producto/modificar}" method="POST">
                 <div class="col-12">
                     <div class="form-group d-flex flex-column">
                         <label class="form-label" for="codigo">Codigo</label>
@@ -53,11 +53,10 @@
                     <button type="submit" value="Agregar" class="btn btn-success mr-5">Modificar</button>
                     <a th:href="@{/producto/mostrar}"><button class="btn btn-danger">Cancelar</button></a>
                 </div>
-
             </form>
         </div>
     </div>
-    <div class="mt-4">
+    <div>
         <div th:insert="layout/footer :: footer"></div>
     </div>
     <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>

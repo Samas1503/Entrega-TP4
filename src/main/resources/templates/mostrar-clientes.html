@@ -10,13 +10,13 @@
 </head>
 
 <body class="fondo-mostrar">
-    <div class="mb-4">
+    <div>
         <div th:insert="layout/header :: header"></div>
     </div>
-    <div class="contenedor d-flex flex-column">
+    <div class="contenedor container-fluid d-flex flex-column mb-4">
         <h3 class="m-auto titulo">Lista de Clientes</h3>
         <div class="table-responsive d-flex justify-content-center text-dark text-center mt-4">
-            <table class="table-dark table-bordered">
+            <table class="table-dark table-bordered col-12">
                 <tr>
                     <th class="p-2" colspan="11">Agregar Clientes <a class="icono" th:href="@{/cliente/registrar}"><i class="fas fa-plus"></i></a></th>
                 </tr>
@@ -52,12 +52,13 @@
             </table>
         </div>
     </div>
-    <div class="mt-4">
+    <div>
         <div th:insert="layout/footer :: footer"></div>
     </div>
     <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
     <script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}" type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
     <script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}" type="text/javascript" src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script th:src="@{../js/app.js}" type="text/javascript"></script>
 </body>
 
 </html>
