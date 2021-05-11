@@ -21,30 +21,10 @@ public class ClienteController {
 
     //GET
 
-    @GetMapping(value="/")
+    @GetMapping(value="/home")
     public String principal(Model modelo){
         return "inicio";
     }
-
-    @GetMapping(value="/ingresarUsuario")
-    public String ingresar(Model modelo){
-        modelo.addAttribute("ingresante", clienteService.crearCliente());
-        return "index";
-    }
-
-    //POST
-
-    @PostMapping(value="/ingresarUsuario")
-    public String ingresarUsuario(@ModelAttribute("ingresante") Clientes ing){
-        if(clienteService.verificarCliente(ing.getTipoDoc(), ing.getNroDocumento(), ing.getPassword())){
-            return "inicio";
-        }
-        else{
-            return "index";
-        }
-    }
-
-    //GET
 
     @GetMapping(value="/cliente")
     public String clienteOpciones(Model modelo){

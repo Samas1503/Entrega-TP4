@@ -13,14 +13,24 @@
     <div>
         <div th:insert="layout/header :: header"></div>
     </div>
-    <div class="d-flex contenedor">
+    <div class="d-flex contenedor-doble">
         <div class="eleccion d-flex flex-column">
             <div class="btn-inicio-producto"></div>
         </div>
         <div class="eleccion d-flex flex-column">
             <a th:href="@{/producto/mostrar}">
-                <button class="btn btn-primary">Empezar</button>
+                <button class="btn btn-primary">Cargar Productos</button>
             </a>
+        </div>
+    </div>
+    <div class="d-flex contenedor-doble">
+        <div class="eleccion d-flex flex-column">
+            <a th:href="@{/producto/catalogo}">
+                <button class="btn btn-primary">Ver Catálogo</button>
+            </a>
+        </div>
+        <div class="eleccion d-flex flex-column">
+            <div class="btn-inicio-catalogo"></div>
         </div>
     </div>
     <div>

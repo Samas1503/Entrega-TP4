@@ -95,12 +95,18 @@ public class ClienteServiceImp implements IClienteService{
 	}
 	public Clientes buscarCliente(int dni){
 		int i;
+		boolean band=false;
 		for(i=0;i<listadoClientes.size();i++){
 			if(listadoClientes.get(i).getNroDocumento() == dni){
+				band=true;
 				break;
 			}
 		}
-		return listadoClientes.get(i);
+		if(!band){
+			return listadoClientes.get(-1);
+		}else{
+			return listadoClientes.get(i);
+		}
 	}
 
 	@Override
