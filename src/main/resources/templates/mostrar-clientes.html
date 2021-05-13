@@ -47,10 +47,30 @@
                     <td class="p-2" th:text="${cl.getEdad()}"></td>
                     <td class="p-2" th:text="${cl.getDatos()}"></td>
                     <td class="p-2"><a class="icono" th:href="@{'/cliente/editar/'+${cl.nroDocumento}}"><i class="fas fa-edit"></i></a></td>
-                    <td class="p-2"><a class="icono" th:href="@{'/cliente/eliminar/'+${cl.nroDocumento}}"><i class="fas fa-user-slash"></i></a></td>
-                </tr>
-            </table>
+                    <td class="p-2"><a class="btn btn-link" style="color:red" data-toggle="modal" data-target="#ventanaModal"><span><i class="fas fa-user-slash"></i></span></button></td>
+                    <div class="modal fade" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 id="tituloVentana">Desea Confirmar su accion?</h5>
+                                    <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="alert alert-succes">
+                                        <h6>Se eliminara el cliente permanentemente</h6>
+                                    </div>
+                                </div>
+                                <div class="modal-fotter">
+                                    <a class="btn btn-danger col-12" th:href="@{'/cliente/eliminar/'+${cl.nroDocumento}}">Eliminar</a>
         </div>
+    </div>
+    </div>
+    </div>
+    </tr>
+    </table>
+    </div>
     </div>
     <div>
         <div th:insert="layout/footer :: footer"></div>

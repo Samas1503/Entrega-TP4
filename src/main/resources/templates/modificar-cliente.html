@@ -11,14 +11,14 @@
     <link th:href="@{../css/styles.css}" th:rel=" stylesheet " type="text/css" href="../static/css/styles.css">
 </head>
 
-<body class="fondo-modificar">
+<body class="fondo-modificar contenedor">
     <div>
         <div th:insert="layout/header :: header"></div>
     </div>
     <div class="d-flex flex-column align-items-center justify-content-center">
-        <h1 class="title-form text-white p-4 my-5">Modificar Cliente</h1>
+        <h1 class="title-form p-4 my-5">Modificar Cliente</h1>
         <div class="col-lg-4 col-md-8 col-sm-12">
-            <form class="contenedor-registro text-white p-4 col-12 d-flex flex-column p-2" id="formRegistro" th:object="${unCliente}" th:action="@{/cliente/modificar}" method="post">
+            <form class="contenedor-registro p-4 col-12 d-flex flex-column pt-2" id="formRegistro" th:object="${unCliente}" th:action="@{/cliente/modificar}" method="post">
                 <div class="col-12">
                     <div class="form-group d-flex flex-column">
                         <label class="form-label" for="tipodoc">Tipo de Documento</label>
@@ -45,12 +45,6 @@
                 </div>
                 <div class="col-12">
                     <div class="form-group d-flex flex-column">
-                        <label for="email" class="form-label">Constraseña</label>
-                        <input class="form-control" type="password" id="password" th:field="*{password}">
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="form-group d-flex flex-column">
                         <label for="fechanac" class="form-label">Nacimiento</label>
                         <input class="form-control" type="date" id="fechanac" th:field="*{fechaNac}" required>
                     </div>
@@ -71,13 +65,35 @@
                         <input class="form-control" type="number" id="numtel" th:field="*{nroTelefono}" required>
                     </div>
                 </div>
-                <div class="d-flex justify-content-center m-5">
-                    <button class="btn btn-primary mr-5 col-12" type="submit" value="Modificar">Modificar</button>
+                <div class="d-flex justify-content-center mt-5 mb-2">
+                    <a class="btn btn-primary col-10 text-white" data-toggle="modal" data-target="#ventanaModal">Confirmar</a>
+                </div>
+                <div class="modal fade" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 id="tituloVentana">Desea Confirmar su accion?</h5>
+                                <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="alert alert-succes">
+                                    <h6>Todos tus datos se modificaran permanentemente</h6>
+                                </div>
+                            </div>
+                            <div class="modal-fotter">
+                                <button class="btn btn-success col-12" type="submit">Modificar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contenedor-registro col-12 d-flex flex-column pb-2">
+                    <div class="d-flex justify-content-center">
+                        <a th:href="@{/cliente/mostrar}" class="col-10 d-flex justify-content-center btn btn-danger">Cancelar</a>
+                    </div>
                 </div>
             </form>
-            <div class="d-flex justify-content-center m-5">
-                <a th:href="@{/cliente/mostrar}"><button class="btn btn-danger col-12">Cancelar</button></a>
-            </div>
         </div>
     </div>
     <div>

@@ -5,20 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar un Cliente</title>
+    <title>Modificar un Producto</title>
     <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
     <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css}" />
     <link th:href="@{../css/styles.css}" th:rel=" stylesheet " type="text/css" href="../static/css/styles.css">
 </head>
 
-<body class="fondo-modificar-p">
+<body class="fondo-modificar-p contenedor">
     <div>
         <div th:insert="layout/header :: header"></div>
     </div>
-    <div class="d-flex flex-column align-items-center justify-content-center">
-        <h1 class="py-5">Formulario de Carga de Producto</h1>
+    <div class="contenedor d-flex flex-column align-items-center justify-content-center">
+        <h1 class="title-form p-4 my-5">Modificar Producto</h1>
         <div class="col-lg-4 col-md-8 col-sm-12">
-            <form class="contenedor-registro text-white p-4 col-12 d-flex flex-column p-2" id="formProducto" th:object="${unProducto}" th:action="@{/producto/modificar}" method="POST">
+            <form class="contenedor-registro p-4 col-12 d-flex flex-column p-2" id="formProducto" th:object="${unProducto}" th:action="@{/producto/modificar}" method="POST">
                 <div class="col-12">
                     <div class="form-group d-flex flex-column">
                         <label class="form-label" for="codigo">Codigo</label>
@@ -28,7 +28,7 @@
                 <div class="col-12">
                     <div class="form-group d-flex flex-column">
                         <label class="form-label" for="nombre">Nombre</label>
-                        <input class="form-control" type="text" id="nombre" th:field="*{nombre}">
+                        <input class="form-control" type="text" id="nombre" th:field="*{nombre}" readonly>
                     </div>
                 </div>
                 <div class="col-12">
@@ -40,7 +40,7 @@
                 <div class="col-12">
                     <div class="form-group d-flex flex-column">
                         <label class="form-label" for="marca">Marca</label>
-                        <input class="form-control" type="text" id="marca" th:field="*{marca}">
+                        <input class="form-control" type="text" id="marca" th:field="*{marca}" readonly>
                     </div>
                 </div>
                 <div class="col-12">
@@ -49,11 +49,35 @@
                         <input class="form-control" type="number" id="stock" th:field="*{stock}">
                     </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-center m-5">
-                    <button type="submit" value="Agregar" class="btn btn-success mr-5">Modificar</button>
-                    <a th:href="@{/producto/mostrar}"><button class="btn btn-danger">Cancelar</button></a>
+                <div class="d-flex justify-content-center mt-5 mb-2">
+                    <a class="btn btn-primary col-10 text-white" data-toggle="modal" data-target="#ventanaModal">Confirmar</a>
+                </div>
+                <div class="modal fade" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 id="tituloVentana">Desea Confirmar su accion?</h5>
+                                <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="alert alert-succes">
+                                    <h6>Todos tus datos se modificaran permanentemente</h6>
+                                </div>
+                            </div>
+                            <div class="modal-fotter">
+                                <button class="btn btn-success col-12" type="submit">Modificar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form>
+            <div class="contenedor-registro col-12 d-flex flex-column pb-2">
+                <div class="d-flex justify-content-center">
+                    <a th:href="@{/producto/mostrar}" class="col-10 d-flex justify-content-center btn btn-danger">Cancelar</a>
+                </div>
+            </div>
         </div>
     </div>
     <div>

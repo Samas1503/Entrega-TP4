@@ -20,6 +20,10 @@ nav .navbar-nav a {
     font-size: 15px;
 }
 
+form a {
+    text-decoration: none;
+}
+
 .fondo-registro {
     background-image: url(../img/fondo-registro.jpg);
     background-size: cover;
