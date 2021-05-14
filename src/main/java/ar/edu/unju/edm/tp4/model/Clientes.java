@@ -2,22 +2,45 @@ package ar.edu.unju.edm.tp4.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
+@Entity
+@Table(name="CLIENTES")
 @Component
 public class Clientes {
+    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
     private int nroDocumento;
-    private int edad;
-    private int codAreaTelefono;
-    private int nroTelefono;
-    private String nombreApellido;
+	@Column
     private String email;
+	@Column
+    private int edad;
+	@Column
+    private int codAreaTelefono;
+	@Column
+    private int nroTelefono;
+	@Column
+    private String nombreApellido;
+	@Column
     private String tipoDoc;
+	@Column
     private String password;
+	@Column
     private String datos;
+	@Column
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate fechaNac,fechaUltimaCompra;
+    private LocalDate fechaNac;
+	@Column
+    private LocalDate fechaUltimaCompra;
     public Clientes(){}
     public Clientes(int nroDocumento, int edad, int codAreaTelefono, int nroTelefono, String nombreApellido,
             String email, String tipoDoc, String password, String datos, LocalDate fechaNac,
