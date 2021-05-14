@@ -40,6 +40,7 @@ public class Clientes {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaNac;
 	@Column
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaUltimaCompra;
     public Clientes(){}
     public Clientes(int nroDocumento, int edad, int codAreaTelefono, int nroTelefono, String nombreApellido,
