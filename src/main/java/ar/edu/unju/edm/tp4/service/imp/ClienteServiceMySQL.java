@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unju.edm.tp4.model.Clientes;
-import ar.edu.unju.edm.tp4.service.IClienteDAO;
 import ar.edu.unju.edm.tp4.service.IClienteService;
+import ar.edu.unju.edm.tp4.repository.IClienteDAO;
 
 @Service
 @Qualifier("dataBaseImp")
