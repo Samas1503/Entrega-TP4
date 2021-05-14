@@ -13,12 +13,12 @@ import ar.edu.unju.edm.tp4.repository.IClienteDAO;
 @Service
 @Qualifier("impMySQL")
 public class ClienteServiceMySQL implements IClienteService{
-
-    @Autowired
-	Clientes unCliente;
 	
 	@Autowired
 	IClienteDAO clienteDAO;
+
+    @Autowired
+    Clientes unCliente;
 
     @Override
     public List<Clientes> obtenerTodosClientes() {
@@ -42,7 +42,7 @@ public class ClienteServiceMySQL implements IClienteService{
 
     @Override
     public Clientes crearCliente() {
-        return null;
+        return unCliente;
     }
 
     @Override
