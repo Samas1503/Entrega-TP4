@@ -59,6 +59,13 @@ form a {
     background-repeat: no-repeat;
 }
 
+.fondo-modificar-p {
+    background-image: url(../img/fondo-modificar.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
 .title-form {
     background-color: rgba(0, 0, 0, .5);
     border-radius: 15px;

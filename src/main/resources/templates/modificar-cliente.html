@@ -8,7 +8,7 @@
     <title>Modificar un Cliente</title>
     <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
     <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css}" />
-    <link th:href="@{../css/styles.css}" th:rel=" stylesheet " type="text/css" href="../static/css/styles.css">
+    <link th:href="@{/css/styles.css}" th:rel=" stylesheet " type="text/css" href="../static/css/styles.css">
 </head>
 
 <body class="fondo-modificar contenedor">
@@ -16,9 +16,9 @@
         <div th:insert="layout/header :: header"></div>
     </div>
     <div class="d-flex flex-column align-items-center justify-content-center">
-        <h1 class="title-form p-4 my-5">Modificar Cliente</h1>
-        <div class="col-lg-4 col-md-8 col-sm-12">
-            <form class="contenedor-registro p-4 col-12 d-flex flex-column pt-2" id="formRegistro" th:object="${unCliente}" th:action="@{/cliente/modificar}" method="post">
+        <h1 class="title-form text-white p-4 my-5">Modificar Cliente</h1>
+        <div class="col-lg-4 col-md-8 col-sm-12 my-5">
+            <form class="contenedor-registro text-white p-4 col-12 d-flex flex-column pt-2" id="formRegistro" th:object="${unCliente}" th:action="@{/cliente/modificar}" method="post">
                 <div class="col-12">
                     <div class="form-group d-flex flex-column">
                         <label class="form-label" for="tipodoc">Tipo de Documento</label>
@@ -88,7 +88,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="contenedor-registro col-12 d-flex flex-column pb-2">
+                <div class="col-12 d-flex flex-column pb-2">
                     <div class="d-flex justify-content-center">
                         <a th:href="@{/cliente/mostrar}" class="col-10 d-flex justify-content-center btn btn-danger">Cancelar</a>
                     </div>
