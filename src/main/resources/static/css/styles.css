@@ -60,10 +60,45 @@ form a {
 }
 
 .fondo-modificar-p {
-    background-image: url(../img/fondo-modificar.jpg);
+    background-image: url(../img/fondo-modificar-p.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
+}
+
+.index {
+    background-image: url(../img/findo-ingreso.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.btn-cliente {
+    background-image: url(../img/cliente.jfif);
+}
+
+.btn-inicio-cliente {
+    background-image: url(../img/inicio-cliente.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.btn-producto {
+    background-image: url(../img/producto.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.btn-inicio-producto {
+    background-image: url(../img/inicio-producto.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.btn-inicio-catalogo {
+    background-image: url(../img/inicio-catalogo.png);
+    background-size: cover;
 }
 
 .title-form {
@@ -133,14 +168,6 @@ form a {
     border-radius: 10px;
 }
 
-.index {
-    background-image: url(../img/findo-ingreso.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-}
-
 .index button a {
     text-decoration: none;
 }
@@ -184,33 +211,6 @@ form a {
 .titulo {
     font-size: 60px;
     text-transform: uppercase;
-}
-
-.btn-cliente {
-    background-image: url(../img/cliente.jfif);
-}
-
-.btn-inicio-cliente {
-    background-image: url(../img/inicio-cliente.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.btn-producto {
-    background-image: url(../img/producto.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.btn-inicio-producto {
-    background-image: url(../img/inicio-producto.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.btn-inicio-catalogo {
-    background-image: url(../img/inicio-catalogo.png);
-    background-size: cover;
 }
 
 @media(max-width: 767px) {
