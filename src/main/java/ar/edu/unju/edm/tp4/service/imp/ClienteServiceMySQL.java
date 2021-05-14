@@ -11,7 +11,7 @@ import ar.edu.unju.edm.tp4.service.IClienteService;
 import ar.edu.unju.edm.tp4.repository.IClienteDAO;
 
 @Service
-@Qualifier("dataBaseImp")
+@Qualifier("impMySQL")
 public class ClienteServiceMySQL implements IClienteService{
 
     @Autowired
