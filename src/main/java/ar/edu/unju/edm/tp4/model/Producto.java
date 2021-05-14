@@ -5,9 +5,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class Producto {
 
-    private String nombre,marca;
+    private String nombre;
+    private String marca;
     private double precio;
-    private int stock,codProducto;
+    private int stock;
+    private int codProducto;
     public Producto() {
     }
     public Producto(String nombre, String marca, double precio, int stock, int codProducto) {

@@ -7,8 +7,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Clientes {
-    private int nroDocumento,edad,codAreaTelefono,nroTelefono;
-    private String nombreApellido,email,tipoDoc,password,datos;
+    private int nroDocumento;
+    private int edad;
+    private int codAreaTelefono;
+    private int nroTelefono;
+    private String nombreApellido;
+    private String email;
+    private String tipoDoc;
+    private String password;
+    private String datos;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaNac,fechaUltimaCompra;
     public Clientes(){}
