@@ -13,7 +13,7 @@ import ar.edu.unju.edm.tp4.service.ProductoService;
 public class VentaController {
     
 	@Autowired
-	@Qualifier("otroImp")
+	@Qualifier("productoImp")
 	ProductoService iProductoService;
     
 	@GetMapping(value="/producto/catalogo")
