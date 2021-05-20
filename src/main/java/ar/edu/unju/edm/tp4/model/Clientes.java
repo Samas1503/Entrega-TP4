@@ -1,13 +1,15 @@
 package ar.edu.unju.edm.tp4.model;
 
 import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
@@ -19,6 +21,8 @@ public class Clientes {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
+    @Min(100000)
+    @Max(99000000)
     private int nroDocumento;
 	@Column
     private String email;
@@ -29,6 +33,7 @@ public class Clientes {
 	@Column
     private int nroTelefono;
 	@Column
+    @NotBlank(message="Este campo no debe estar en blanco")
     private String nombreApellido;
 	@Column
     private String tipoDoc;
