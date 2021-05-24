@@ -1,6 +1,15 @@
 package ar.edu.unju.edm.tp4.model;
 
 import java.time.LocalDate;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -60,8 +69,7 @@ public class Clientes {
     }
 
     public Clientes(Integer idUsuario, int nroDocumento, int edad, int codAreaTelefono, int nroTelefono,
-            String nombreApellido, String email, String tipoDoc, String password, String datos, LocalDate fechaNac,
-            LocalDate fechaUltimaCompra) {
+            String nombreApellido, String email, String tipoDoc, String password, String datos, LocalDate fechaNac, LocalDate fechaUltimaCompra) {
         this.idUsuario = idUsuario;
         this.nroDocumento = nroDocumento;
         this.edad = edad;

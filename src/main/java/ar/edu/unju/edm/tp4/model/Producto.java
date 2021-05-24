@@ -33,7 +33,7 @@ public class Producto {
 
     @Column
     private int stock;
-
+  
     public Producto() {
     }
 

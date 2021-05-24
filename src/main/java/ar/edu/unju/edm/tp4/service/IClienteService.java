@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import ar.edu.unju.edm.tp4.model.Clientes;
 
-@Service
+@Service("clienteService")
 
 public interface IClienteService {
 //import org.springframework.stereotype.Service;

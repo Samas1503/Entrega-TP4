@@ -32,12 +32,14 @@
                     <div class="form-group d-flex flex-column">
                         <label for="numdoc" class="form-label">Documento</label>
                         <input class="form-control" type="number" id="numdoc" th:field="*{nroDocumento}" required>
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('nroDocumento')}" th:errors="*{nroDocumento}">Name Error</div>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-group d-flex flex-column">
                         <label for="nombreapellido" class="form-label">Nombre y Apellido</label>
-                        <input class="form-control" type="text" id="nombreapellido" th:field="*{nombreApellido}" required>
+                        <input class="form-control" type="text" id="nombreapellido" th:field="*{nombreApellido}">
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('nombreApellido')}" th:errors="*{nombreApellido}">Name Error</div>
                     </div>
                 </div>
                 <div class="col-12">

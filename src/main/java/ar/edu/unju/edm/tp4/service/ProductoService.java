@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import ar.edu.unju.edm.tp4.model.Producto;
 
-@Service
+@Service("productoService")
 public interface ProductoService{
     public void guardarProducto(Producto unProducto);
 	public void modificarProducto(Producto productoAModificar);
