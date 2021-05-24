@@ -17,5 +17,5 @@ public interface IClienteService {
 	public boolean verificarCliente(String tipo,int numDoc,String password);
 	public Clientes buscarCliente(int dni) throws Exception;
 	public void modificarCliente(Clientes clienteModificado);
-	public void eliminarCliente(int dni);
+	public void eliminarCliente(int dni) throws Exception;
 }

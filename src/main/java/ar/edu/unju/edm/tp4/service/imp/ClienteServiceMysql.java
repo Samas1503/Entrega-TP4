@@ -15,7 +15,7 @@ import ar.edu.unju.edm.tp4.service.IClienteService;
 
 
 @Service
-@Qualifier("mysqlImp")
+@Qualifier("mysqlClientesImp")
 public class ClienteServiceMysql implements IClienteService{
 
     @Autowired
@@ -91,7 +91,7 @@ public class ClienteServiceMysql implements IClienteService{
     @Override
     public boolean verificarCliente(String tipo, int numDoc, String password) {
 		boolean band=false;
-        if(clienteDAO.findById(numDoc)!=null){
+        if(clienteDAO.findByNroDocumento(numDoc)!=null){
 			if(tipo==clienteDAO.findById(numDoc).get().getTipoDoc() && password==clienteDAO.findById(numDoc).get().getPassword()){
 				band=true;
 			}
@@ -101,17 +101,18 @@ public class ClienteServiceMysql implements IClienteService{
 
     @Override
     public Clientes buscarCliente(int dni) throws Exception{
-        return clienteDAO.findById(dni).orElseThrow(()->new Exception("El usuario NO existe"));
+        return clienteDAO.findByNroDocumento(dni).orElseThrow(()->new Exception("El usuario NO existe"));
     }
 
     @Override
     public void modificarCliente(Clientes clienteModificado) {
-        clienteDAO.save(unCliente);
+        clienteDAO.save(clienteModificado);
     }
 
     @Override
-    public void eliminarCliente(int dni) {
-        clienteDAO.deleteById(dni);
+    public void eliminarCliente(int dni) throws Exception {
+		Clientes clienteEliminar = clienteDAO.findByNroDocumento(dni).orElseThrow(()->new Exception("Cliente NO encontrado"));
+        clienteDAO.delete(clienteEliminar);
     }
     
 }

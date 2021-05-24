@@ -10,67 +10,92 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name="PRODUCTOS")
+@Table(name = "PRODUCTOS")
 @Component
 public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
+    private Integer idProducto;
+
+    @Column
     private int codProducto;
-    
+
     @Column
     private String nombre;
-    
+
     @Column
     private String marca;
-    
+
     @Column
     private double precio;
-    
+
     @Column
     private int stock;
+
     public Producto() {
     }
-    public Producto(String nombre, String marca, double precio, int stock, int codProducto) {
+
+    public Producto(Integer idProducto, int codProducto, String nombre, String marca, double precio, int stock) {
+        this.idProducto = idProducto;
+        this.codProducto = codProducto;
         this.nombre = nombre;
         this.marca = marca;
         this.precio = precio;
         this.stock = stock;
-        this.codProducto = codProducto;
     }
+
     @Override
     public String toString() {
-        return "Producto [codProducto=" + codProducto + ", " + (marca != null ? "marca=" + marca + ", " : "")
-                + (nombre != null ? "nombre=" + nombre + ", " : "") + "precio=" + precio + ", stock=" + stock + "]";
+        return "Producto [codProducto=" + codProducto + ", "
+                + (idProducto != null ? "idProducto=" + idProducto + ", " : "")
+                + (marca != null ? "marca=" + marca + ", " : "") + (nombre != null ? "nombre=" + nombre + ", " : "")
+                + "precio=" + precio + ", stock=" + stock + "]";
     }
+    public Integer getIdProducto() {
+        return idProducto;
+    }
+    public void setIdProducto(Integer idProducto) {
+        this.idProducto = idProducto;
+    }
+
     public String getNombre() {
         return nombre;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
     public String getMarca() {
         return marca;
     }
+
     public void setMarca(String marca) {
         this.marca = marca;
     }
+
     public double getPrecio() {
         return precio;
     }
+
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
     public int getStock() {
         return stock;
     }
+
     public void setStock(int stock) {
         this.stock = stock;
     }
+
     public int getCodProducto() {
         return codProducto;
     }
+
     public void setCodProducto(int codProducto) {
         this.codProducto = codProducto;
     }
@@ -79,6 +104,7 @@ public class Producto {
         final int prime = 31;
         int result = 1;
         result = prime * result + codProducto;
+        result = prime * result + ((idProducto == null) ? 0 : idProducto.hashCode());
         result = prime * result + ((marca == null) ? 0 : marca.hashCode());
         result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
         long temp;
@@ -97,6 +123,13 @@ public class Producto {
         }
         Producto other = (Producto) obj;
         if (codProducto != other.codProducto) {
+            return false;
+        }
+        if (idProducto == null) {
+            if (other.idProducto != null) {
+                return false;
+            }
+        } else if (!idProducto.equals(other.idProducto)) {
             return false;
         }
         if (marca == null) {

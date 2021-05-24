@@ -19,6 +19,7 @@
         <h1 class="title-form text-white p-4 my-5">Modificar Cliente</h1>
         <div class="col-lg-4 col-md-8 col-sm-12 my-5">
             <form class="contenedor-registro text-white p-4 col-12 d-flex flex-column pt-2" id="formRegistro" th:object="${unCliente}" th:action="@{/cliente/modificar}" method="post">
+                <input type="hidden" th:field="*{idUsuario}">
                 <div class="col-12">
                     <div class="form-group d-flex flex-column">
                         <label class="form-label" for="tipodoc">Tipo de Documento</label>

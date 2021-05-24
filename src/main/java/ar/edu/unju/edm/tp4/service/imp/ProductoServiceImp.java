@@ -58,8 +58,4 @@ public class ProductoServiceImp implements ProductoService{
 	public Producto obtenerProductoNuevo() {
 		return unProducto;
 	}
-
-	public Producto obtenerUltimoProducto() {
-		return listadoProductos.get(listadoProductos.size() - 1);
-	}
 }

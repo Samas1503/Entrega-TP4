@@ -16,7 +16,7 @@ import ar.edu.unju.edm.tp4.service.IClienteService;
 @Controller
 public class ClienteController {
     @Autowired
-    @Qualifier("mysqlImp")
+    @Qualifier("mysqlClientesImp")
     IClienteService clienteService;
 
     //GET
@@ -72,15 +72,15 @@ public class ClienteController {
 
    @PostMapping(value="/cliente/guardar")
     public String guardarCliente(@ModelAttribute("unCliente") Clientes nuevoCliente){
-        clienteService.guardarCliente(nuevoCliente);
         clienteService.adiconalesCliente(nuevoCliente);
+        clienteService.guardarCliente(nuevoCliente);
         return "redirect:/cliente/registrado";
     }
     
 	@PostMapping(value="/cliente/modificar")
 	public String modificarCliente(@ModelAttribute("unCliente") Clientes clienteModificado){
-		clienteService.modificarCliente(clienteModificado);
         clienteService.adiconalesCliente(clienteModificado);
+		clienteService.modificarCliente(clienteModificado);
 		return "redirect:/cliente/mostrar";
 	}
     

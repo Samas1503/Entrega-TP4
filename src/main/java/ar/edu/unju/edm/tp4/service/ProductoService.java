@@ -10,9 +10,8 @@ import ar.edu.unju.edm.tp4.model.Producto;
 public interface ProductoService{
     public void guardarProducto(Producto unProducto);
 	public void modificarProducto(Producto productoAModificar);
-	public void eliminarProducto(int cod);
-	public Producto obtenerUnProducto(int cod);
+	public void eliminarProducto(int cod) throws Exception;
+	public Producto obtenerUnProducto(int cod) throws Exception;
 	public List<Producto> obtenerTodosProductos();
 	public Producto obtenerProductoNuevo();
-	public Object obtenerUltimoProducto();
 }
