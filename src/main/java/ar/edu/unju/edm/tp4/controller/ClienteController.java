@@ -79,8 +79,8 @@ public class ClienteController {
     
 	@PostMapping(value="/cliente/modificar")
 	public String modificarCliente(@ModelAttribute("unCliente") Clientes clienteModificado){
-		clienteService.modificarCliente(clienteModificado);
         clienteService.adiconalesCliente(clienteModificado);
+		clienteService.modificarCliente(clienteModificado);
 		return "redirect:/cliente/mostrar";
 	}
     

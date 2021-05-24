@@ -101,12 +101,11 @@ public class ClienteServiceMysql implements IClienteService{
 
     @Override
     public Clientes buscarCliente(int dni) throws Exception{
-		return clienteDAO.findByNroDocumento(dni).orElseThrow(()->new Exception("El usuario NO existe"));
+        return clienteDAO.findByNroDocumento(dni).orElseThrow(()->new Exception("El usuario NO existe"));
     }
 
     @Override
     public void modificarCliente(Clientes clienteModificado) {
-		adiconalesCliente(clienteModificado);
         clienteDAO.save(clienteModificado);
     }
 
