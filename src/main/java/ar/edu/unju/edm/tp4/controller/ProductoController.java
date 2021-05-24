@@ -17,7 +17,7 @@ import ar.edu.unju.edm.tp4.service.ProductoService;
 public class ProductoController {
 	
 	@Autowired
-	@Qualifier("productoImp")
+	@Qualifier("mysqlProductosImp")
 	ProductoService iProductoService;
 
 	//GET
@@ -47,7 +47,7 @@ public class ProductoController {
 	}
 	
 	@GetMapping(value="/producto/editar/{codProducto}")
-    public ModelAndView editandoCliente(@PathVariable(name = "codProducto") int cod){
+    public ModelAndView editandoCliente(@PathVariable(name = "codProducto") int cod) throws Exception{
         ModelAndView model = new ModelAndView("modificar-producto");
         Producto encontrado = iProductoService.obtenerUnProducto(cod);
         model.addObject("unProducto", encontrado);

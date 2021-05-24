@@ -45,7 +45,7 @@ public class ClienteController {
     }
     
     @GetMapping(value="/cliente/mostrar")
-    public String cargarCliente(Model modelo){
+    public String cargarCliente(Model modelo) throws Exception{
         modelo.addAttribute("clientes", clienteService.obtenerTodosClientes());
         return "mostrar-clientes";
     }
@@ -78,7 +78,7 @@ public class ClienteController {
     }
     
 	@PostMapping(value="/cliente/modificar")
-	public String modificarCliente(@ModelAttribute("unCliente") Clientes clienteModificado){
+	public String modificarCliente(@ModelAttribute("unCliente") Clientes clienteModificado) throws Exception{
         clienteService.adiconalesCliente(clienteModificado);
 		clienteService.modificarCliente(clienteModificado);
 		return "redirect:/cliente/mostrar";

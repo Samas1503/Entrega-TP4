@@ -91,7 +91,7 @@ public class ClienteServiceMysql implements IClienteService{
     @Override
     public boolean verificarCliente(String tipo, int numDoc, String password) {
 		boolean band=false;
-        if(clienteDAO.findById(numDoc)!=null){
+        if(clienteDAO.findByNroDocumento(numDoc)!=null){
 			if(tipo==clienteDAO.findById(numDoc).get().getTipoDoc() && password==clienteDAO.findById(numDoc).get().getPassword()){
 				band=true;
 			}
