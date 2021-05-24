@@ -29,7 +29,7 @@ public class UsuarioController {
 
     @PostMapping(value="/ingresar")
     public String ingresarUsuario(@ModelAttribute("ingresante") Clientes ing,Model modelo){
-        if(clienteService.verificarCliente(ing.getTipoDoc(), ing.getNroDocumento(), ing.getPassword())){
+        if(clienteService.verificarCliente(ing.getTipoDoc(), ing.getNroDocumento(), ing.getPassword()) == true){
             return "redirect:/home";
         }
         else{
