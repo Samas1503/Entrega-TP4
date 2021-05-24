@@ -15,7 +15,7 @@ import ar.edu.unju.edm.tp4.service.IClienteService;
 
 
 @Service
-@Qualifier("mysqlImp")
+@Qualifier("mysqlClientesImp")
 public class ClienteServiceMysql implements IClienteService{
 
     @Autowired
@@ -92,7 +92,7 @@ public class ClienteServiceMysql implements IClienteService{
     public boolean verificarCliente(String tipo, int numDoc, String password) {
 		boolean band=false;
         if(clienteDAO.findByNroDocumento(numDoc)!=null){
-			if(tipo==clienteDAO.findById(numDoc).get().getTipoDoc() && password==clienteDAO.findById(numDoc).get().getPassword()){
+			if(tipo==clienteDAO.findByNroDocumento(numDoc).get().getTipoDoc() && password==clienteDAO.findById(numDoc).get().getPassword()){
 				band=true;
 			}
         }

@@ -16,7 +16,7 @@ import ar.edu.unju.edm.tp4.service.IClienteService;
 @Controller
 public class ClienteController {
     @Autowired
-    @Qualifier("mysqlImp")
+    @Qualifier("mysqlClientesImp")
     IClienteService clienteService;
 
     //GET
