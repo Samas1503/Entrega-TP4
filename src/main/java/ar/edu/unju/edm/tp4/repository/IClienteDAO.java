@@ -1,6 +1,7 @@
 package ar.edu.unju.edm.tp4.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -13,5 +14,5 @@ public interface IClienteDAO extends CrudRepository<Clientes,Integer>{
     
     @Query("from Clientes c order by c.nroDocumento")
     public List<Clientes> obtenClientes();
-
+    public Optional<Clientes> findByNroDocumento(int dni);
 }

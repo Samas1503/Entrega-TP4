@@ -72,8 +72,8 @@ public class ClienteController {
 
    @PostMapping(value="/cliente/guardar")
     public String guardarCliente(@ModelAttribute("unCliente") Clientes nuevoCliente){
-        clienteService.guardarCliente(nuevoCliente);
         clienteService.adiconalesCliente(nuevoCliente);
+        clienteService.guardarCliente(nuevoCliente);
         return "redirect:/cliente/registrado";
     }
     

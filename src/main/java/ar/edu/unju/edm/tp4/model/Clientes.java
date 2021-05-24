@@ -19,6 +19,8 @@ public class Clientes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
+    private Integer idCliente;
+    @Column
     private int nroDocumento;
     
     @Column
@@ -53,9 +55,10 @@ public class Clientes {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaUltimaCompra;
     public Clientes(){}
-    public Clientes(int nroDocumento, int edad, int codAreaTelefono, int nroTelefono, String nombreApellido,
-            String email, String tipoDoc, String password, String datos, LocalDate fechaNac,
+    public Clientes(Integer idCliente, int nroDocumento, int edad, int codAreaTelefono, int nroTelefono,
+            String nombreApellido, String email, String tipoDoc, String password, String datos, LocalDate fechaNac,
             LocalDate fechaUltimaCompra) {
+        this.idCliente = idCliente;
         this.nroDocumento = nroDocumento;
         this.edad = edad;
         this.codAreaTelefono = codAreaTelefono;
@@ -68,16 +71,22 @@ public class Clientes {
         this.fechaNac = fechaNac;
         this.fechaUltimaCompra = fechaUltimaCompra;
     }
-    @Override
     public String toString() {
         return "Clientes [codAreaTelefono=" + codAreaTelefono + ", " + (datos != null ? "datos=" + datos + ", " : "")
                 + "edad=" + edad + ", " + (email != null ? "email=" + email + ", " : "")
                 + (fechaNac != null ? "fechaNac=" + fechaNac + ", " : "")
                 + (fechaUltimaCompra != null ? "fechaUltimaCompra=" + fechaUltimaCompra + ", " : "")
+                + (idCliente != null ? "idCliente=" + idCliente + ", " : "")
                 + (nombreApellido != null ? "nombreApellido=" + nombreApellido + ", " : "") + "nroDocumento="
                 + nroDocumento + ", nroTelefono=" + nroTelefono + ", "
                 + (password != null ? "password=" + password + ", " : "")
                 + (tipoDoc != null ? "tipoDoc=" + tipoDoc : "") + "]";
+    }
+    public Integer getIdCliente() {
+        return idCliente;
+    }
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
     public int getNroDocumento() {
         return nroDocumento;
@@ -155,6 +164,7 @@ public class Clientes {
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + ((fechaNac == null) ? 0 : fechaNac.hashCode());
         result = prime * result + ((fechaUltimaCompra == null) ? 0 : fechaUltimaCompra.hashCode());
+        result = prime * result + ((idCliente == null) ? 0 : idCliente.hashCode());
         result = prime * result + ((nombreApellido == null) ? 0 : nombreApellido.hashCode());
         result = prime * result + nroDocumento;
         result = prime * result + nroTelefono;
@@ -203,6 +213,13 @@ public class Clientes {
                 return false;
             }
         } else if (!fechaUltimaCompra.equals(other.fechaUltimaCompra)) {
+            return false;
+        }
+        if (idCliente == null) {
+            if (other.idCliente != null) {
+                return false;
+            }
+        } else if (!idCliente.equals(other.idCliente)) {
             return false;
         }
         if (nombreApellido == null) {
