@@ -51,7 +51,7 @@ public class ClienteController {
     }
     
     @GetMapping(value="/cliente/editar/{nroDocumento}")
-    public ModelAndView editandoCliente(@PathVariable(name = "nroDocumento") int dni){
+    public ModelAndView editandoCliente(@PathVariable(name = "nroDocumento") int dni) throws Exception{
         ModelAndView model = new ModelAndView("modificar-cliente");
         Clientes encontrado = clienteService.buscarCliente(dni);
         model.addObject("unCliente", encontrado);

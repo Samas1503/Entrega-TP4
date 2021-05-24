@@ -15,7 +15,7 @@ public interface IClienteService {
 	public Clientes crearCliente();
 	public List<Clientes> obtenerTodosClientes();
 	public boolean verificarCliente(String tipo,int numDoc,String password);
-	public Clientes buscarCliente(int dni);
+	public Clientes buscarCliente(int dni) throws Exception;
 	public void modificarCliente(Clientes clienteModificado);
 	public void eliminarCliente(int dni);
 }
